@@ -1,6 +1,7 @@
 import './App.css'
 import React, {useEffect, useState} from "react"
 import LoadingMask from "./components/LoadingMask"
+import Hotel from "./components/Hotel"
 
 const App = () => {
 
