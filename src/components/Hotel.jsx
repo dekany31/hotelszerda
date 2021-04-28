@@ -14,7 +14,10 @@ function Hotel({hotel, key}) {
               : "Show more"}
       </button>
       {
-        show ? <Subscription city={hotel.city} stars={hotel.stars} />
+        show ? <>
+        <p>{hotel.city}({hotel.stars})</p>
+        <button onClick={(ev) => <Subscription />}>Request more info</button>
+        </>
             : ""
       }
     </div>
