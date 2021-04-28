@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
+import LoadingMask from "./LoadingMask"
 
-function Subscription(props) {
+function Subscription(props,) {
 
   const [email, setEmail] = useState("")
   const [data, setData] = useState([])
@@ -26,7 +27,10 @@ function Subscription(props) {
         setData(null);
       }
       )
-      .finally(() => (setLoading(false)))
+      .finally(() => {
+        setLoading(false)
+        setTimeout(() => { setMessage(""); showSubs(false) }, 5000)
+      })
   }
   console.log("subsc=", data);
   if (message !== "")
@@ -35,6 +39,8 @@ function Subscription(props) {
     return (
       <div>
         <h3>Request more info about</h3>
+        {loading && <LoadingMask />
+        }
         <>
           <input type="email" onChange={(ev) => setEmail(ev.target.value)} />
           <button disabled={!(email.includes("@") && email.includes("."))}
