@@ -5,6 +5,7 @@ import Subscription from "./Subscription"
 function Hotel({hotel, key}) {
 
   const [show, setShow] = useState(false)
+  const [showSubs, setshowSubs] = useState(false) 
 
   return (
     <div>
@@ -14,11 +15,14 @@ function Hotel({hotel, key}) {
               : "Show more"}
       </button>
       {
-        show ? <>
+        show && <>
         <p>{hotel.city}({hotel.stars})</p>
-        <button onClick={(ev) => <Subscription />}>Request more info</button>
+        <button onClick={(ev) => setshowSubs(!showSubs)}>Request more info</button>
+        {
+          showSubs && <Subscription hotelName={hotel.name}  />
+        }
         </>
-            : ""
+        
       }
     </div>
   )
