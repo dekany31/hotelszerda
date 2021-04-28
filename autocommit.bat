@@ -40,3 +40,6 @@ rem sleep %interval%
 
 
 pause "auto commit end...."
+
+rem 
+rem c:/windows/system32/cmd.exe
